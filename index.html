@@ -19,12 +19,12 @@
         <!--==================== HEADER ====================-->
         <header class="header" id="header">
             <nav class="nav container">
-                <a href="#" class="nav__logo">Daniel Rho</a>
+                <a href="#" class="nav__logo">Daniel</a>
 
                 <div class="nav__menu" id="nav-menu">
                     <ul class="nav__list grid">
                         <li class="nav__item">
-                            <a href="#home" class="nav__link">
+                            <a href="#home" class="nav__link active-link">
                                 <i class="uil uil-home nav__icon"></i> Home
                             </a>
                         </li>
@@ -34,13 +34,18 @@
                             </a>
                         </li>
                         <li class="nav__item">
-                            <a href="#publications" class="nav__link">
-                                <i class="uil uil-file-alt nav__icon"></i> Publications
+                            <a href="#education" class="nav__link">
+                                <i class="uil uil-graduation-cap nav__icon"></i> Education
                             </a>
                         </li>
                         <li class="nav__item">
-                            <a href="#contact" class="nav__link">
-                                <i class="uil uil-message nav__icon"></i> ContactMe
+                            <a href="#work" class="nav__link">
+                                <i class="uil uil-briefcase-alt nav__icon"></i> Work
+                            </a>
+                        </li>
+                        <li class="nav__item">
+                            <a href="#publications" class="nav__link">
+                                <i class="uil uil-file-alt nav__icon"></i> Publications
                             </a>
                         </li>
                     </ul>
@@ -48,6 +53,9 @@
                 </div>
 
                 <div class="nav__btns">
+                    <!-- Theme change button -->
+                    <i class="uil uil-moon change-theme" id="theme-button"></i>
+
                     <div class="nav__toggle" id="nav-toggle">
                         <i class="uil uil-apps"></i>
                     </div>
@@ -59,37 +67,259 @@
         <main class="main">
             <!--==================== HOME ====================-->
             <section class="home section" id="home">
-                
+                <div class="home__container container grid">
+                    <div class="home__content grid">
+                        <div class="home__social">
+                            <a href="https://github.com/daniel03c1" target="_blank" class="home__social-icon">
+                                <i class="uil uil-github-alt"></i>
+                            </a>
+                            
+                            <a href="assets/pdf/cv.pdf" target="_blank" class="home__social-icon">
+                                <i class="uil">cv</i>
+                            </a>
+                        </div>
+
+                        <div class="home__img">
+
+                        </div>
+
+                        <div class="home__data">
+                            <h1 class="home__title">Hi, I am Daniel Rho</h1>
+                            <h3 class="home__subtitle">AI/ML Research Engineer</h3>
+                            <p class="home__description">Experience in audio understanding, neural fields, and self-supervised learning.</p>
+                            <a href="mailto:daniel03c195@gmail.com" class="button button--flex">
+                                Contact Me <i class="uil uil-message button__icon"></i>
+                            </a>
+                        </div>
+
+                        <div class="home__scroll">
+                            <a href="#about" class="home__scroll-button button--flex">
+                                <i class="uil uil-mouse-alt home__scroll-mouse"></i>
+                                <span class="home__scroll-name">Scroll Down</span>
+                                <i class="uil uil-arrow-down home__scroll-arrow"></i>
+                            </a>
+                        </div>
+                    </div>
+                </div>
             </section>
 
             <!--==================== ABOUT ====================-->
             <section class="about section" id="about">
-                
+                <h2 class="section__title">About Me</h2>
+                <span class="section__subtitle">My introduction</span>
+
+                <div class="about__container container grid">
+                    <!-- TODO: insert image -->
+                    <img src="" alt="" class="about__img">
+
+                    <div class="about__data">
+                        <p class="about__description">Currently ... </p>
+
+                        <div class="about__info">
+                            <!-- <div>
+                                <span class="about__info-title">08+</span>
+                                <span class="about__info-name">Blah~blah</span>
+                            </div> -->
+                            
+                            <!-- <div>
+                                <span class="about__info-title">08+</span>
+                                <span class="about__info-name">Blah~blah</span>
+                            </div> -->
+                        </div>
+
+                        <div class="about__buttons">
+
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <!--==================== EDUCATION ====================-->
+            <section class="qualification section" id="education">
+                <h2 class="section__title">Education</h2>
+                <span class="section__subtitle"></span>
+
+                <div class="qualification__container container">
+                    <div class="qualification__tabs">
+                        <!-- <div class="qualification__button button--flex qualification__active" data-target="#education">
+                            <i class="uil uil-graduation-cap qualification__icon"></i>
+                            Education
+                        </div>
+
+                        <div class="qualification__button button--flex" data-target="#work">
+                            <i class="uil uil-briefcase-alt qualification__icon"></i>
+                            Work
+                        </div> -->
+
+                        <div class="qualification__sections">
+                            <!--============== QUALIFICATION CONTENT 1 ==============-->
+                            <div class="qualification__content qualification__active" data-content id="education">
+                                <!-- DATA 1 -->
+                                <div class="qualification__data">
+                                    <div>
+                                        <h3 class="qualification__title">Master in Artificial Intelligence</h3>
+                                        <span class="qualification__subtitle">Sungkyunkwan University, Korea</span>
+                                        <div class="qualification__calendar">
+                                            <i class="uil uil-calendar-alt"></i>
+                                            2020 - 2022
+                                        </div>
+                                    </div>
+
+                                    <div>
+                                        <span class="qualification__rounder"></span>
+                                        <span class="qualification__line"></span>
+                                    </div>
+                                </div>
+
+                                <!-- DATA 2 -->
+                                <div class="qualification__data">
+                                    <div></div>
+
+                                    <div>
+                                        <span class="qualification__rounder"></span>
+                                        <!-- <span class="qualification__line"></span> -->
+                                    </div>
+
+                                    <div>
+                                        <h3 class="qualification__title">Economics,<br>Computer Science and Engineering</h3>
+                                        <span class="qualification__subtitle">Sungkyunkwan University, Korea</span>
+                                        <div class="qualification__calendar">
+                                            <i class="uil uil-calendar-alt"></i>
+                                            2014 - 2020
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <!--==================== WORK ====================-->
+            <section class="qualification section" id="work">
+                <h2 class="section__title">Work</h2>
+                <span class="section__subtitle"></span>
+
+                <div class="qualification__container container">
+                    <div class="qualification__tabs">
+                        <div class="qualification__sections">
+                            <!--============== QUALIFICATION CONTENT 1 ==============-->
+                            <div class="qualification__content qualification__active" data-content id="education">
+                                <!-- DATA 1 -->
+                                <div class="qualification__data">
+                                    <div>
+                                        <h3 class="qualification__title">Research Engineer</h3>
+                                        <span class="qualification__subtitle">AI2XL, KT</span>
+                                        <div class="qualification__calendar">
+                                            <i class="uil uil-calendar-alt"></i>
+                                            2022 - Present
+                                        </div>
+                                    </div>
+
+                                    <div>
+                                        <span class="qualification__rounder"></span>
+                                        <!-- <span class="qualification__line"></span> -->
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
             </section>
 
             <!--==================== PUBLICATIONS ====================-->
             <section class="publication section" id="publications">
+                <h2 class="section__title">Publications</h2>
+                <span class="section__subtitle"></span>
 
-            </section>
+                <div class="about__container container grid">
+                    <!-- TODO: insert image -->
+                    <!-- <img src="" alt="" class="about__img"> -->
 
-            <!--==================== QUALIFICATION ====================-->
-            <section class="qualification section">
-
+                    <div class="about__data">
+                        <p class="publication__data">
+                            Joo Chan Lee, <b>Daniel Rho</b>, Jong Hwan Ko†, and Eunbyung Park†, <b>"FFNeRV: Flow-Guided Frame-Wise Neural Representations for Videos", arXiv preprint arXiv:2212.12294.</b>
+                            <a  href="https://maincold2.github.io/ffnerv/" target="_blank" class="publication-icon">
+                                <i class="uil uil-desktop-alt"></i>
+                            </a>
+                            <a  href="https://arxiv.org/abs/2212.12294" target="_blank" class="publication-icon">
+                                <i class="uil uil-file-alt"></i>
+                            </a>
+                            <a  href="https://github.com/maincold2/FFNeRV" target="_blank" class="publication-icon">
+                                <i class="uil uil-github-alt"></i>
+                            </a>
+                        </p>
+                        <p class="publication__data">
+                            <b>Daniel Rho*</b>, Byeonghyeon Lee*, Seungtae Nam, Joo Chan Lee, Jong Hwan Ko†, and Eunbyung Park†, <b>"Masked Wavelet Representation for Compact Neural Radiance Fields", arXiv preprint arXiv:2212.09069.</b>
+                            <a  href="https://daniel03c1.github.io/masked_wavelet_nerf/" target="_blank" class="publication-icon">
+                                <i class="uil uil-desktop-alt"></i>
+                            </a>
+                            <a  href="https://arxiv.org/abs/2212.09069" target="_blank" class="publication-icon">
+                                <i class="uil uil-file-alt"></i>
+                            </a>
+                            <a  href="https://github.com/daniel03c1/masked_wavelet_nerf" target="_blank" class="publication-icon">
+                                <i class="uil uil-github-alt"></i>
+                            </a>
+                        </p>
+                        <p class="publication__data">
+                            TaeSoo Kim*, <b>Daniel Rho*</b>, Gahui Lee, JaeHan Park, and Jong Hwan Ko, <b>"Regression to Classification: Waveform Encoding for Neural Field-Based Audio Signal Representation", ICASSP, 2023.</b>
+                            <!-- <a  href="" target="_blank" class="publication-icon">
+                                <i class="uil uil-file-alt"></i>
+                            </a> -->
+                        </p>
+                        <p class="publication__data">
+                            <b>Daniel Rho</b>, Junwoo Cho, Jong Hwan Ko, Eunbyung Park, <b>"Neural Residual Flow Fields for Efficient Video Representations", ACCV, 2022.</b>
+                            <a  href="https://openaccess.thecvf.com/content/ACCV2022/html/Rho_Neural_Residual_Flow_Fields_for_Efficient_Video_Representations_ACCV_2022_paper.html" target="_blank" class="publication-icon">
+                                <i class="uil uil-file-alt"></i>
+                            </a>
+                            <a  href="https://github.com/daniel03c1/eff_video_representation" target="_blank" class="publication-icon">
+                                <i class="uil uil-github-alt"></i>
+                            </a>
+                        </p>
+                        <p class="publication__data">
+                            Junwoo Cho*, Seungtae Nam*, <b>Daniel Rho</b>, Jong Hwan Ko, Eunbyung Park, <b>"Streamable neural fields", ECCV, 2022.</b>
+                            <a  href="https://www.ecva.net/papers/eccv_2022/papers_ECCV/html/744_ECCV_2022_paper.php" target="_blank" class="publication-icon">
+                                <i class="uil uil-file-alt"></i>
+                            </a>
+                            <a  href="https://github.com/jwcho5576/streamable_nf" target="_blank" class="publication-icon">
+                                <i class="uil uil-github-alt"></i>
+                            </a>
+                        </p>
+                        <p class="publication__data">
+                            <b>Daniel Rho</b>, Jinhyeok Park, and Jong Hwan Ko, <b>"NAS-VAD: Neural Architecture Search for Voice Activity Detection", Interspeech, 2022.</b>
+                            <a  href="https://www.isca-speech.org/archive/interspeech_2022/rho22_interspeech.html" target="_blank" class="publication-icon">
+                                <i class="uil uil-file-alt"></i>
+                            </a>
+                            <a  href="https://github.com/daniel03c1/NAS_VAD" target="_blank" class="publication-icon">
+                                <i class="uil uil-github-alt"></i>
+                            </a>
+                        </p>
+                    </div>
+                </div>
             </section>
 
             <!--==================== CONTACT ME ====================-->
-            <section class="contact section" id="contact">
+            <!-- <section class="contact section" id="contact">
 
-            </section>
+            </section> -->
         </main>
 
         <!--==================== FOOTER ====================-->
         <footer class="footer">
-         
+            <div class="footer__bg">
+                <div class="footer__container container grid">
+                    <div>
+                        <!-- <h1 class="footer__title">Daniel</h1> -->
+                        <!-- <span class="footer__subtitle">Latest update in Feb. 23 2023.</span> -->
+                    </div>
+                </div>
+            </div>
         </footer>
         
         <!--==================== SCROLL TOP ====================-->
-        
+        <a href="#" class="scrollup" id="scroll-up">
+            <i class="uil uil-arrow-up scrollup__icon"></i>
+        </a>
 
         <!--==================== SWIPER JS ====================-->
         <script src=""></script>
