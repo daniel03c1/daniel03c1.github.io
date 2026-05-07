@@ -1,449 +1,497 @@
 <!DOCTYPE html>
-    <html lang="en">
-    <head>
-        <meta charset="UTF-8">
-        <meta name="viewport" content="width=device-width, initial-scale=1.0">
-        <meta http-equiv="Permissions-Policy" content="interest-cohort=()">
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="color-scheme" content="light dark">
+  <meta http-equiv="Permissions-Policy" content="interest-cohort=()">
+  <meta name="description" content="Daniel Rho is a PhD student in computer science at UNC Chapel Hill, working on 3D and 4D scene representations and physics from real world observations.">
+  <meta name="author" content="Daniel Rho">
 
-        <!--==================== UNICONS ====================-->
-        <link rel="stylesheet" href="https://unicons.iconscout.com/release/v3.0.6/css/line.css">
-        
-        <!--==================== SWIPER CSS ====================-->
-        <link rel="stylesheet" href="">
+  <meta property="og:type" content="profile">
+  <meta property="og:title" content="Daniel Rho">
+  <meta property="og:description" content="PhD student in computer science at UNC Chapel Hill. 3D/4D scene representations, physics from observations, neural rendering.">
+  <meta name="twitter:card" content="summary">
 
-        <!--==================== CSS ====================-->
-        <link rel="stylesheet" href="assets/css/styles.css">
+  <title>Daniel Rho</title>
 
-        <title>Daniel Rho</title>
-    </head>
-    <body>
-        <!--==================== HEADER ====================-->
-        <header class="header" id="header">
-            <nav class="nav container">
-                <a href="#" class="nav__logo">Daniel</a>
+  <link rel="canonical" href="https://daniel03c1.github.io/">
+  <link rel="stylesheet" href="assets/css/styles.css">
 
-                <div class="nav__menu" id="nav-menu">
-                    <ul class="nav__list grid">
-                        <li class="nav__item">
-                            <a href="#home" class="nav__link active-link">
-                                <i class="uil uil-home nav__icon"></i> Home
-                            </a>
-                        </li>
-                        <li class="nav__item">
-                            <a href="#education" class="nav__link">
-                                <i class="uil uil-graduation-cap nav__icon"></i> Education
-                            </a>
-                        </li>
-                        <li class="nav__item">
-                            <a href="#work" class="nav__link">
-                                <i class="uil uil-briefcase-alt nav__icon"></i> Work
-                            </a>
-                        </li>
-                        <li class="nav__item">
-                            <a href="#publications" class="nav__link">
-                                <i class="uil uil-file-alt nav__icon"></i> Publications
-                            </a>
-                        </li>
-                    </ul>
-                    <i class="uil uil-times nav__close" id="nav-close"></i>
-                </div>
+  <script>
+    // Theme bootstrap. Runs before paint so the page does not flash the wrong
+    // theme. Reads localStorage first; falls back to system preference if
+    // nothing is stored. Wrapped in try/catch in case storage is blocked
+    // (private mode, sandboxed iframes).
+    (function () {
+      try {
+        var stored = localStorage.getItem('theme');
+        if (stored === 'dark' || stored === 'light') {
+          document.documentElement.setAttribute('data-theme', stored);
+        }
+      } catch (e) { /* ignore storage errors */ }
+    })();
+  </script>
+</head>
+<body>
+  <!--
+    Inline SVG sprite. Defining icons once and referencing them via <use>
+    keeps markup small and avoids an icon-font CDN request.
+  -->
+  <svg width="0" height="0" style="position:absolute" aria-hidden="true" focusable="false">
+    <defs>
+      <symbol id="i-mail" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round">
+        <rect x="3" y="5" width="18" height="14" rx="2"/>
+        <path d="m3 7 9 6 9-6"/>
+      </symbol>
+      <symbol id="i-scholar" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round">
+        <path d="M2 9 12 4l10 5-10 5L2 9z"/>
+        <path d="M6 11v5c0 1.5 3 3 6 3s6-1.5 6-3v-5"/>
+      </symbol>
+      <symbol id="i-github" viewBox="0 0 24 24" fill="currentColor">
+        <path d="M12 2A10 10 0 0 0 2 12c0 4.42 2.87 8.17 6.84 9.5.5.08.66-.22.66-.48v-1.7c-2.78.6-3.37-1.34-3.37-1.34-.45-1.16-1.11-1.47-1.11-1.47-.91-.62.07-.6.07-.6 1 .07 1.53 1.03 1.53 1.03.89 1.52 2.34 1.08 2.91.83.09-.65.35-1.08.63-1.33-2.22-.25-4.55-1.11-4.55-4.94 0-1.09.39-1.99 1.03-2.69-.1-.25-.45-1.27.1-2.65 0 0 .84-.27 2.75 1.02a9.5 9.5 0 0 1 5 0c1.91-1.29 2.75-1.02 2.75-1.02.55 1.38.2 2.4.1 2.65.64.7 1.03 1.6 1.03 2.69 0 3.84-2.34 4.69-4.57 4.94.36.31.68.92.68 1.85v2.74c0 .27.16.57.67.48A10 10 0 0 0 22 12 10 10 0 0 0 12 2z"/>
+      </symbol>
+      <symbol id="i-doc" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round">
+        <path d="M14 3H6a2 2 0 0 0-2 2v14a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V9z"/>
+        <path d="M14 3v6h6"/>
+      </symbol>
+      <symbol id="i-globe" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round">
+        <circle cx="12" cy="12" r="9"/>
+        <path d="M3 12h18M12 3a14 14 0 0 1 0 18M12 3a14 14 0 0 0 0 18"/>
+      </symbol>
+      <symbol id="i-code" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round">
+        <path d="m9 18-6-6 6-6M15 6l6 6-6 6"/>
+      </symbol>
+      <symbol id="i-sun" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round">
+        <circle cx="12" cy="12" r="4"/>
+        <path d="M12 2v2M12 20v2M2 12h2M20 12h2M4.93 4.93l1.41 1.41M17.66 17.66l1.41 1.41M4.93 19.07l1.41-1.41M17.66 6.34l1.41-1.41"/>
+      </symbol>
+      <symbol id="i-moon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round">
+        <path d="M21 12.8A9 9 0 1 1 11.2 3a7 7 0 0 0 9.8 9.8z"/>
+      </symbol>
+      <symbol id="i-menu" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round">
+        <path d="M4 7h16M4 12h16M4 17h16"/>
+      </symbol>
+      <symbol id="i-close" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round">
+        <path d="M6 6l12 12M18 6 6 18"/>
+      </symbol>
+      <symbol id="i-cap" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round">
+        <path d="M2 9 12 4l10 5-10 5L2 9z"/>
+        <path d="M6 11v4c0 1.5 3 3 6 3s6-1.5 6-3v-4"/>
+      </symbol>
+      <symbol id="i-bag" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round">
+        <rect x="3" y="7" width="18" height="13" rx="2"/>
+        <path d="M9 7V5a2 2 0 0 1 2-2h2a2 2 0 0 1 2 2v2"/>
+      </symbol>
+    </defs>
+  </svg>
 
-                <div class="nav__btns">
-                    <!-- Theme change button -->
-                    <i class="uil uil-moon change-theme" id="theme-button"></i>
+  <a class="skip-link" href="#main">Skip to content</a>
 
-                    <div class="nav__toggle" id="nav-toggle">
-                        <i class="uil uil-apps"></i>
-                    </div>
-                </div>
-            </nav>
-        </header>
+  <header class="site-header">
+    <nav class="site-nav" aria-label="Primary">
+      <a class="site-nav__brand" href="#home">Daniel Rho</a>
 
-        <!--==================== MAIN ====================-->
-        <main class="main">
-            <!--==================== HOME ====================-->
-            <section class="home section" id="home">
-                <div class="home__container container grid">
-                    <div class="home__content grid">
-                        <div class="home__social">
-                            <a href="https://scholar.google.com/citations?hl=ko&user=nEC0wK4AAAAJ" target="_blank" class="home__social-icon">
-                                <i class="uil uil-graduation-cap"></i>
-                            </a>
-                            <a href="https://github.com/daniel03c1" target="_blank" class="home__social-icon">
-                                <i class="uil uil-github-alt"></i>
-                            </a>
-                            
-                            <a href="assets/pdf/cv.pdf" target="_blank" class="home__social-icon">
-                                <i class="uil">cv</i>
-                            </a>
-                        </div>
+      <button
+        class="site-nav__toggle"
+        type="button"
+        aria-controls="primary-menu"
+        aria-expanded="false"
+        aria-label="Open menu"
+        data-nav-toggle
+      >
+        <svg class="site-nav__icon site-nav__icon--menu" width="22" height="22" aria-hidden="true"><use href="#i-menu"/></svg>
+        <svg class="site-nav__icon site-nav__icon--close" width="22" height="22" aria-hidden="true"><use href="#i-close"/></svg>
+      </button>
 
-                        <div class="home__img">
+      <ul class="site-nav__list" id="primary-menu">
+        <li><a href="#home">Home</a></li>
+        <li><a href="#publications">Publications</a></li>
+        <li><a href="#preprints">Preprints</a></li>
+        <li><a href="#experience">Experience</a></li>
+      </ul>
 
-                        </div>
+      <button
+        class="theme-toggle"
+        type="button"
+        aria-label="Toggle color theme"
+        data-theme-toggle
+      >
+        <svg class="theme-toggle__icon theme-toggle__icon--sun" width="20" height="20" aria-hidden="true"><use href="#i-sun"/></svg>
+        <svg class="theme-toggle__icon theme-toggle__icon--moon" width="20" height="20" aria-hidden="true"><use href="#i-moon"/></svg>
+      </button>
+    </nav>
+  </header>
 
-                        <div class="home__data">
-                            <h2 class="home__title">Hi, I am Daniel Rho</h1>
-                            <p class="home__description">  I am a Ph.D. student at the University of North Carolina, working under the supervision of Professor Roni Sengupta. My research focuses on integrating physics into neural rendering techniques and applying neural rendering to medical applications. Also, I have experience in neural fields, audio signal processing and generation, and self-supervised learning.
- </p>
-                            <a href="mailto:dnl03c1@cs.unc.edu" class="button button--flex">
-                                Contact Me <i class="uil uil-message button__icon"></i>
-                            </a>
-                        </div>
-                    </div>
-                </div>
-            </section>
+  <main id="main" class="main">
 
-            <!--==================== EDUCATION ====================-->
-            <section class="qualification section" id="education">
-                <h2 class="section__title">Education</h2>
-                <span class="section__subtitle"></span>
+    <section id="home" class="hero" aria-labelledby="hero-title">
+      <div class="container">
+        <h1 id="hero-title" class="hero__title">Daniel Rho</h1>
+        <p class="hero__subtitle">PhD student, computer science, UNC Chapel Hill</p>
+        <p class="hero__about">
+          I am a PhD student in computer science at UNC Chapel Hill, advised by <a href="https://www.cs.unc.edu/~ronisen/" target="_blank" rel="noopener noreferrer">Prof. Roni Sengupta</a>. Before UNC, I worked as a research engineer at KT AI Tech Lab, and completed my MS at Sungkyunkwan University with <a href="https://iris.skku.edu" target="_blank" rel="noopener noreferrer">Prof. Jong Hwan Ko</a> and <a href="https://silverbottlep.github.io" target="_blank" rel="noopener noreferrer">Prof. Eunbyung Park</a>.
+        </p>
+        <p class="hero__about">
+          My research focuses on accurately recovering 3D and 4D scene representations from real world observations, including geometry, dynamics, and the physics behind what we see. I am interested in how faithful, efficient representations enable diverse downstream applications, such as medical imaging, novel view synthesis, and physics based reasoning.
+        </p>
 
-                <div class="qualification__container container">
-                    <div class="qualification__tabs">
-                        <!-- <div class="qualification__button button--flex qualification__active" data-target="#education">
-                            <i class="uil uil-graduation-cap qualification__icon"></i>
-                            Education
-                        </div>
+        <ul class="hero__links" aria-label="Profile links">
+          <li>
+            <a href="mailto:dnl03c1@cs.unc.edu" aria-label="Email">
+              <svg width="18" height="18" aria-hidden="true"><use href="#i-mail"/></svg>
+              <span>Email</span>
+            </a>
+          </li>
+          <li>
+            <a href="https://scholar.google.com/citations?hl=ko&amp;user=nEC0wK4AAAAJ" target="_blank" rel="noopener noreferrer" aria-label="Google Scholar">
+              <svg width="18" height="18" aria-hidden="true"><use href="#i-scholar"/></svg>
+              <span>Scholar</span>
+            </a>
+          </li>
+          <li>
+            <a href="https://github.com/daniel03c1" target="_blank" rel="noopener noreferrer" aria-label="GitHub">
+              <svg width="18" height="18" aria-hidden="true"><use href="#i-github"/></svg>
+              <span>GitHub</span>
+            </a>
+          </li>
+          <li>
+            <a href="assets/pdf/cv.pdf" target="_blank" rel="noopener noreferrer" aria-label="Curriculum vitae">
+              <svg width="18" height="18" aria-hidden="true"><use href="#i-doc"/></svg>
+              <span>CV</span>
+            </a>
+          </li>
+        </ul>
+      </div>
+    </section>
 
-                        <div class="qualification__button button--flex" data-target="#work">
-                            <i class="uil uil-briefcase-alt qualification__icon"></i>
-                            Work
-                        </div> -->
+    <!--
+      Publications. Each <li class="paper-card"> has the same shape: a
+      title, an author line (your name wrapped in <strong>), and a meta
+      line with a venue badge plus link icons. To add a paper, copy any
+      <li> block and edit. Reverse chronological.
+    -->
+    <section id="publications" class="section" aria-labelledby="publications-title">
+      <div class="container">
+        <h2 id="publications-title" class="section__title">Publications</h2>
 
-                        <div class="qualification__sections">
-                            <!--============== QUALIFICATION CONTENT 1 ==============-->
-                            <div class="qualification__content qualification__active" data-content id="education">
-                                <!-- DATA 0 -->
-                                <div class="qualification__data">
+        <ol class="paper-list" reversed>
 
-                                    <div>
-                                        <div class="qualification__calendar">
-                                            <i class="uil uil-calendar-alt"></i>
-                                            2024 - Present
-                                        </div>
-                                        <h3 class="qualification__title">Ph.D. in Computer Science</h3>
-                                        <span class="qualification__subtitle">University of North Carolina at Chapel Hill, US<br>Advisor: <a href="https://www.cs.unc.edu/~ronisen/">Roni Sengupta</a></span>
-                                    </div>
-
-                                    <div>
-                                        <span class="qualification__rounder"></span>
-                                        <span class="qualification__line"></span>
-                                    </div>
-                                </div>
-
-                                <!-- DATA 1 -->
-                                <div class="qualification__data">
-                                    <div></div>
-                                    <div>
-                                        <span class="qualification__rounder"></span>
-                                        <span class="qualification__line"></span>
-                                    </div>
-
-                                    <div>
-                                        <div class="qualification__calendar">
-                                            <i class="uil uil-calendar-alt"></i>
-                                            2020 - 2022
-                                        </div>
-                                        <h3 class="qualification__title">Master of Artificial Intelligence</h3>
-                                        <span class="qualification__subtitle">Sungkyunkwan University, Korea<br>Advisors: <a href="https://iris.skku.edu">Jong Hwan Ko</a>, <a href="https://silverbottlep.github.io">Eunbyung Park</a></span>
-                                    </div>
-
-                                </div>
-
-                                <!-- DATA 2 -->
-                                <div class="qualification__data">
-
-                                    <div>
-                                        <div class="qualification__calendar">
-                                            <i class="uil uil-calendar-alt"></i>
-                                            2014 - 2020
-                                        </div>
-                                        <h3 class="qualification__title">Bachelor of Economics,<br>Computer Science and Engineering</h3>
-                                        <span class="qualification__subtitle">Sungkyunkwan University, Korea</span>
-                                    </div>
-
-                                    <div>
-                                        <span class="qualification__rounder"></span>
-                                        <!-- <span class="qualification__line"></span> -->
-                                    </div>
-
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </section>
-
-            <!--==================== WORK ====================-->
-            <section class="qualification section" id="work">
-                <h2 class="section__title">Work</h2>
-                <span class="section__subtitle"></span>
-
-                <div class="qualification__container container">
-                    <div class="qualification__tabs">
-                        <div class="qualification__sections">
-                            <!--============== QUALIFICATION CONTENT 1 ==============-->
-                            <div class="qualification__content qualification__active" data-content id="education">
-                                <!-- DATA 2 -->
-                                <div class="qualification__data">
-                                    <div>
-                                        <div class="qualification__calendar">
-                                            <i class="uil uil-calendar-alt"></i>
-                                            May 2025 - July 2025
-                                        </div>
-                                        <h3 class="qualification__title">Research Intern</h3>
-                                        <span class="qualification__subtitle">Lenovo Research</span>
-                                    </div>
-
-                                    <div>
-                                        <span class="qualification__rounder"></span>
-                                        <!-- <span class="qualification__line"></span> -->
-                                    </div>
-                                </div>
-
-                                <!-- DATA 1 -->
-                                <div class="qualification__data">
-                                    <div>
-                                        <div class="qualification__calendar">
-                                            <i class="uil uil-calendar-alt"></i>
-                                            Aug 2022 - June 2024
-                                        </div>
-                                        <h3 class="qualification__title">Research Engineer</h3>
-                                        <span class="qualification__subtitle">AI Tech Lab, KT</span>
-                                    </div>
-
-                                    <div>
-                                        <span class="qualification__rounder"></span>
-                                        <!-- <span class="qualification__line"></span> -->
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </section>
-
-            <!--==================== PUBLICATIONS ====================-->
-            <section class="publication section" id="publications">
-                <h2 class="section__title">Publications</h2>
-                <span class="section__subtitle"></span>
-
-                <div class="about__container container grid">
-                    <!-- TODO: insert image -->
-                    <!-- <img src="" alt="" class="about__img"> -->
-
-                    <div class="about__data">
-                        <p class="publication__data">
-                            <b>NFL‑BA: Improving Endoscopic SLAM with Near‑Field Light Bundle Adjustment</b>
-                            <br>
-                            Andrea Dunn Beltran*, <b>Daniel Rho*</b>, Marc Niethammer, Roni Sengupta
-                            <br>
-                            NeurIPS, 2025
-                            <a  href="https://asdunnbe.github.io/NFL-BA/" target="_blank" class="publication-icon">
-                                <i class="uil uil-desktop-alt"></i>
-                            </a>
-                            <a href="https://arxiv.org/abs/2412.13176" target="_blank" class="publication-icon">
-                                <i class="uil uil-file-alt"></i>
-                            </a> 
-                        </p>
-
-                        <p class="publication__data">
-                            <b>F-3DGS: Factorized Coordinates and Representations for 3D Gaussian Splatting</b>
-                            <br>
-                            Xiangyu Sun, Joo Chan Lee, <b>Daniel Rho</b>, Jong Hwan Ko, Usman Ali, Eunbyung Park
-                            <br>ACM MM, 2024
-                            <a  href="https://arxiv.org/abs/2405.17083" target="_blank" class="publication-icon">
-                                <i class="uil uil-file-alt"></i>
-                            </a>
-                        </p>
-
-                        <p class="publication__data">
-                            <b>Compact 3D Gaussian Representation for Radiance Field</b>
-                            <br>
-                            Joo Chan Lee, <b>Daniel Rho</b>, Xiangyu Sun, Jong Hwan Ko, Eunbyung Park
-                            <br>CVPR, 2024 <b>(highlight)</b>
-                            <a  href="https://maincold2.github.io/c3dgs/" target="_blank" class="publication-icon">
-                                <i class="uil uil-desktop-alt"></i>
-                            </a>
-                            <a  href="https://arxiv.org/abs/2311.13681" target="_blank" class="publication-icon">
-                                <i class="uil uil-file-alt"></i>
-                            </a>
-                            <a  href="https://github.com/maincold2/Compact-3DGS" target="_blank" class="publication-icon">
-                                <i class="uil uil-github-alt"></i>
-                            </a>
-                        </p>
-
-                                                <p class="publication__data">
-                                                        <b>Coordinate-Aware Modulation for Neural Fields</b>
-                                                        <br>
-Joo Chan Lee, <b>Daniel Rho</b>, Seungtae Nam, Jong Hwan Ko, Eunbyung Park
-                                                        <br>
-                                                        ICLR, 2024 <b>(spotlight)</b>
-                                                        <a href="https://maincold2.github.io/cam/" target="_blank" class="publication-icon">
-                                                                <i class="uil uil-desktop-alt"></i>
-                                                        </a>
-                                                </p>
-
-                                                <p class="publication__data">
-                                                        <b>Mip-Grid: Anti-aliased Grid Representations for Neural Radiance Fields</b>
-                                                        <br>
-                                                        Seungtae Nam, <b>Daniel Rho</b>, Jong Hwan Ko, Eunbyung Park
-                                                        <br>NeurIPS, 2023
-                                                        </a>
-                                                        <a href="https://openreview.net/forum?id=BW6nZf7TnK" target="_blank" class="publication-icon">
-                                                                <i class="uil uil-file-alt"></i>
-                                                        </a>
-                                                </p>
-
-                                                <p class="publication__data">
-                                                        <b>FFNeRV: Flow-Guided Frame-Wise Neural Representations for Videos</b>
-                                                        <br>
-                                                        Joo Chan Lee, <b>Daniel Rho</b>, Jong Hwan Ko†, Eunbyung Park†
-                                                        <br>ACM MM, 2023
-                                                        <a href="https://maincold2.github.io/ffnerv/" target="_blank" class="publication-icon">
-                                                                <i class="uil uil-desktop-alt"></i>
-                                                        </a>
-                                                        <a href="https://arxiv.org/abs/2212.12294" target="_blank" class="publication-icon">
-                                                                <i class="uil uil-file-alt"></i>
-                                                        </a>
-                                                        <a href="https://github.com/maincold2/FFNeRV" target="_blank" class="publication-icon">
-                                                                <i class="uil uil-github-alt"></i>
-                                                        </a>
-                                                </p>
-
-                        <p class="publication__data">
-                            <b>Masked Wavelet Representation for Compact Neural Radiance Fields</b>
-                            <br>
-                            <b>Daniel Rho<sup>*</sup></b>, Byeonghyeon Lee<sup>*</sup>, Seungtae Nam, Joo Chan Lee, Jong Hwan Ko<sup>†</sup>, Eunbyung Park<sup>†</sup>
-                            <br>CVPR, 2023
-                            <a  href="https://daniel03c1.github.io/masked_wavelet_nerf/" target="_blank" class="publication-icon">
-                                <i class="uil uil-desktop-alt"></i>
-                            </a>
-                            <a  href="https://openaccess.thecvf.com/content/CVPR2023/html/Rho_Masked_Wavelet_Representation_for_Compact_Neural_Radiance_Fields_CVPR_2023_paper.html" target="_blank" class="publication-icon">
-                                <i class="uil uil-file-alt"></i>
-                            </a>
-                            <a  href="https://github.com/daniel03c1/masked_wavelet_nerf" target="_blank" class="publication-icon">
-                                <i class="uil uil-github-alt"></i>
-                            </a>
-                        </p>
-
-                                                <p class="publication__data">
-                                                        <b>Regression to Classification: Waveform Encoding for Neural Field-Based Audio Signal Representation</b>
-                                                        <br>
-                                                        TaeSoo Kim*, <b>Daniel Rho*</b>, Gahui Lee, JaeHan Park, Jong Hwan Ko
-                                                        <br>ICASSP, 2023
-                                                        <a href="https://ieeexplore.ieee.org/abstract/document/10095021" target="_blank" class="publication-icon">
-                                                                <i class="uil uil-file-alt"></i>
-                                                        </a>
-                                                </p>
-
-                                                <p class="publication__data">
-                                                        <b>Neural Residual Flow Fields for Efficient Video Representations</b>
-                                                        <br>
-                                                        <b>Daniel Rho</b>, Junwoo Cho, Jong Hwan Ko, Eunbyung Park
-                                                        <br>ACCV, 2022
-                                                        <a href="https://openaccess.thecvf.com/content/ACCV2022/html/Rho_Neural_Residual_Flow_Fields_for_Efficient_Video_Representations_ACCV_2022_paper.html" target="_blank" class="publication-icon">
-                                                                <i class="uil uil-file-alt"></i>
-                                                        </a>
-                                                        <a href="https://github.com/daniel03c1/eff_video_representation" target="_blank" class="publication-icon">
-                                                                <i class="uil uil-github-alt"></i>
-                                                        </a>
-                                                </p>
-
-                                                <p class="publication__data">
-                                                        <b>Streamable neural fields</b>
-                                                        <br>
-                                                        Junwoo Cho*, Seungtae Nam*, <b>Daniel Rho</b>, Jong Hwan Ko, Eunbyung Park
-                                                        <br>ECCV, 2022
-                                                        <a href="https://www.ecva.net/papers/eccv_2022/papers_ECCV/html/744_ECCV_2022_paper.php" target="_blank" class="publication-icon">
-                                                                <i class="uil uil-file-alt"></i>
-                                                        </a>
-                                                        <a href="https://github.com/jwcho5576/streamable_nf" target="_blank" class="publication-icon">
-                                                                <i class="uil uil-github-alt"></i>
-                                                        </a>
-                                                </p>
-
-                                                <p class="publication__data">
-                                                        <b>NAS-VAD: Neural Architecture Search for Voice Activity Detection</b>
-                                                        <br>
-                                                        <b>Daniel Rho</b>, Jinhyeok Park, and Jong Hwan Ko
-                                                        <br>Interspeech, 2022
-                                                        <a href="https://www.isca-speech.org/archive/interspeech_2022/rho22_interspeech.html" target="_blank" class="publication-icon">
-                                                                <i class="uil uil-file-alt"></i>
-                                                        </a>
-                                                        <a href="https://github.com/daniel03c1/NAS_VAD" target="_blank" class="publication-icon">
-                                                                <i class="uil uil-github-alt"></i>
-                                                        </a>
-                                                </p>
-                    </div>
-                </div>
-            </section>
-
-            <!--==================== PREPRINTS ====================-->
-            <section class="publication section" id="preprints">
-                <h2 class="section__title">Preprints</h2>
-                <span class="section__subtitle"></span>
-
-                <div class="about__container container grid">
-                    <!-- You can add an image here if desired -->
-                    <div class="about__data">
-                        <p class="publication__data">
-                            <b>ProJo4D: Progressive Joint Optimization for Sparse-View Inverse Physics Estimation</b>
-                            <br>
-                            <b>Daniel Rho</b>, Jun Myeong Choi, Biswadip Dey, Roni Sengupta
-                            <br>
-                            arXiv preprint, 2025
-                            <a href="https://arxiv.org/abs/2506.05317" target="_blank" class="publication-icon">
-                                <i class="uil uil-file-alt"></i>
-                            </a>
-                            <a href="https://daniel03c1.github.io/ProJo4D/" target="_blank" class="publication-icon">
-                                <i class="uil uil-github-alt"></i>
-                            </a>
-                        </p>
-
-                        <p class="publication__data">
-                            <b>Understanding Contrastive Learning Through the Lens of Margins</b>
-                            <br>
-                            <b>Daniel Rho</b>, TaeSoo Kim, Sooill Park, Jaehyun Park, JaeHan Park
-                            <br>
-                            arXiv preprint, 2023
-                            <a href="https://arxiv.org/abs/2306.11526" target="_blank" class="publication-icon">
-                                <i class="uil uil-file-alt"></i>
-                            </a>
-                        </p>
-                    </div>
-                </div>
-            </section>
-
-
-            <!--==================== CONTACT ME ====================-->
-            <!-- <section class="contact section" id="contact">
-
-            </section> -->
-        </main>
-
-        <!--==================== FOOTER ====================-->
-        <footer class="footer">
-            <div class="footer__bg">
-                <div class="footer__container container grid">
-                    <div>
-                        <!-- <h1 class="footer__title">Daniel</h1> -->
-                        <!-- <span class="footer__subtitle">Latest update in Feb. 23 2023.</span> -->
-                    </div>
-                </div>
+          <li class="paper-card">
+            <div class="paper-card__body">
+              <h3 class="paper-card__title">ProJo4D: Progressive joint optimization for sparse-view inverse physics estimation</h3>
+              <p class="paper-card__authors"><strong>Daniel Rho</strong>, Jun Myeong Choi, Biswadip Dey, Roni Sengupta</p>
+              <p class="paper-card__meta">
+                <span class="venue venue--peer">TMLR 2026</span>
+                <a class="paper-link" href="https://daniel03c1.github.io/ProJo4D/" target="_blank" rel="noopener noreferrer" aria-label="Project page">
+                  <svg width="14" height="14" aria-hidden="true"><use href="#i-globe"/></svg><span>project</span>
+                </a>
+                <a class="paper-link" href="https://arxiv.org/abs/2506.05317" target="_blank" rel="noopener noreferrer" aria-label="Paper">
+                  <svg width="14" height="14" aria-hidden="true"><use href="#i-doc"/></svg><span>paper</span>
+                </a>
+              </p>
             </div>
-        </footer>
-        
-        <!--==================== SCROLL TOP ====================-->
-        <a href="#" class="scrollup" id="scroll-up">
-            <i class="uil uil-arrow-up scrollup__icon"></i>
-        </a>
+          </li>
 
-        <!--==================== SWIPER JS ====================-->
-        <script src=""></script>
+          <li class="paper-card">
+            <div class="paper-card__body">
+              <h3 class="paper-card__title">NFL-BA: Improving endoscopic SLAM with near-field light bundle adjustment</h3>
+              <p class="paper-card__authors">Andrea Dunn Beltran*, <strong>Daniel Rho*</strong>, Marc Niethammer, Roni Sengupta</p>
+              <p class="paper-card__meta">
+                <span class="venue venue--peer">NeurIPS 2025</span>
+                <a class="paper-link" href="https://asdunnbe.github.io/NFL-BA/" target="_blank" rel="noopener noreferrer" aria-label="Project page">
+                  <svg width="14" height="14" aria-hidden="true"><use href="#i-globe"/></svg><span>project</span>
+                </a>
+                <a class="paper-link" href="https://arxiv.org/abs/2412.13176" target="_blank" rel="noopener noreferrer" aria-label="Paper">
+                  <svg width="14" height="14" aria-hidden="true"><use href="#i-doc"/></svg><span>paper</span>
+                </a>
+              </p>
+            </div>
+          </li>
 
-        <!--==================== MAIN JS ====================-->
-        <script src="assets/js/main.js"></script>
-    </body>
+          <li class="paper-card">
+            <div class="paper-card__body">
+              <h3 class="paper-card__title">F-3DGS: Factorized coordinates and representations for 3D Gaussian splatting</h3>
+              <p class="paper-card__authors">Xiangyu Sun, Joo Chan Lee, <strong>Daniel Rho</strong>, Jong Hwan Ko, Usman Ali, Eunbyung Park</p>
+              <p class="paper-card__meta">
+                <span class="venue venue--peer">ACM MM 2024</span>
+                <a class="paper-link" href="https://arxiv.org/abs/2405.17083" target="_blank" rel="noopener noreferrer" aria-label="Paper">
+                  <svg width="14" height="14" aria-hidden="true"><use href="#i-doc"/></svg><span>paper</span>
+                </a>
+              </p>
+            </div>
+          </li>
+
+          <li class="paper-card">
+            <div class="paper-card__body">
+              <h3 class="paper-card__title">Compact 3D Gaussian representation for radiance field</h3>
+              <p class="paper-card__authors">Joo Chan Lee, <strong>Daniel Rho</strong>, Xiangyu Sun, Jong Hwan Ko, Eunbyung Park</p>
+              <p class="paper-card__meta">
+                <span class="venue venue--peer">CVPR 2024, highlight</span>
+                <a class="paper-link" href="https://maincold2.github.io/c3dgs/" target="_blank" rel="noopener noreferrer" aria-label="Project page">
+                  <svg width="14" height="14" aria-hidden="true"><use href="#i-globe"/></svg><span>project</span>
+                </a>
+                <a class="paper-link" href="https://arxiv.org/abs/2311.13681" target="_blank" rel="noopener noreferrer" aria-label="Paper">
+                  <svg width="14" height="14" aria-hidden="true"><use href="#i-doc"/></svg><span>paper</span>
+                </a>
+                <a class="paper-link" href="https://github.com/maincold2/Compact-3DGS" target="_blank" rel="noopener noreferrer" aria-label="Code">
+                  <svg width="14" height="14" aria-hidden="true"><use href="#i-code"/></svg><span>code</span>
+                </a>
+              </p>
+            </div>
+          </li>
+
+          <li class="paper-card">
+            <div class="paper-card__body">
+              <h3 class="paper-card__title">Coordinate-aware modulation for neural fields</h3>
+              <p class="paper-card__authors">Joo Chan Lee, <strong>Daniel Rho</strong>, Seungtae Nam, Jong Hwan Ko, Eunbyung Park</p>
+              <p class="paper-card__meta">
+                <span class="venue venue--peer">ICLR 2024, spotlight</span>
+                <a class="paper-link" href="https://maincold2.github.io/cam/" target="_blank" rel="noopener noreferrer" aria-label="Project page">
+                  <svg width="14" height="14" aria-hidden="true"><use href="#i-globe"/></svg><span>project</span>
+                </a>
+              </p>
+            </div>
+          </li>
+
+          <li class="paper-card">
+            <div class="paper-card__body">
+              <h3 class="paper-card__title">Mip-Grid: Anti-aliased grid representations for neural radiance fields</h3>
+              <p class="paper-card__authors">Seungtae Nam, <strong>Daniel Rho</strong>, Jong Hwan Ko, Eunbyung Park</p>
+              <p class="paper-card__meta">
+                <span class="venue venue--peer">NeurIPS 2023</span>
+                <a class="paper-link" href="https://openreview.net/forum?id=BW6nZf7TnK" target="_blank" rel="noopener noreferrer" aria-label="Paper">
+                  <svg width="14" height="14" aria-hidden="true"><use href="#i-doc"/></svg><span>paper</span>
+                </a>
+              </p>
+            </div>
+          </li>
+
+          <li class="paper-card">
+            <div class="paper-card__body">
+              <h3 class="paper-card__title">FFNeRV: Flow-guided frame-wise neural representations for videos</h3>
+              <p class="paper-card__authors">Joo Chan Lee, <strong>Daniel Rho</strong>, Jong Hwan Ko&dagger;, Eunbyung Park&dagger;</p>
+              <p class="paper-card__meta">
+                <span class="venue venue--peer">ACM MM 2023</span>
+                <a class="paper-link" href="https://maincold2.github.io/ffnerv/" target="_blank" rel="noopener noreferrer" aria-label="Project page">
+                  <svg width="14" height="14" aria-hidden="true"><use href="#i-globe"/></svg><span>project</span>
+                </a>
+                <a class="paper-link" href="https://arxiv.org/abs/2212.12294" target="_blank" rel="noopener noreferrer" aria-label="Paper">
+                  <svg width="14" height="14" aria-hidden="true"><use href="#i-doc"/></svg><span>paper</span>
+                </a>
+                <a class="paper-link" href="https://github.com/maincold2/FFNeRV" target="_blank" rel="noopener noreferrer" aria-label="Code">
+                  <svg width="14" height="14" aria-hidden="true"><use href="#i-code"/></svg><span>code</span>
+                </a>
+              </p>
+            </div>
+          </li>
+
+          <li class="paper-card">
+            <div class="paper-card__body">
+              <h3 class="paper-card__title">Masked wavelet representation for compact neural radiance fields</h3>
+              <p class="paper-card__authors"><strong>Daniel Rho*</strong>, Byeonghyeon Lee*, Seungtae Nam, Joo Chan Lee, Jong Hwan Ko&dagger;, Eunbyung Park&dagger;</p>
+              <p class="paper-card__meta">
+                <span class="venue venue--peer">CVPR 2023</span>
+                <a class="paper-link" href="https://daniel03c1.github.io/masked_wavelet_nerf/" target="_blank" rel="noopener noreferrer" aria-label="Project page">
+                  <svg width="14" height="14" aria-hidden="true"><use href="#i-globe"/></svg><span>project</span>
+                </a>
+                <a class="paper-link" href="https://openaccess.thecvf.com/content/CVPR2023/html/Rho_Masked_Wavelet_Representation_for_Compact_Neural_Radiance_Fields_CVPR_2023_paper.html" target="_blank" rel="noopener noreferrer" aria-label="Paper">
+                  <svg width="14" height="14" aria-hidden="true"><use href="#i-doc"/></svg><span>paper</span>
+                </a>
+                <a class="paper-link" href="https://github.com/daniel03c1/masked_wavelet_nerf" target="_blank" rel="noopener noreferrer" aria-label="Code">
+                  <svg width="14" height="14" aria-hidden="true"><use href="#i-code"/></svg><span>code</span>
+                </a>
+              </p>
+            </div>
+          </li>
+
+          <li class="paper-card">
+            <div class="paper-card__body">
+              <h3 class="paper-card__title">Regression to classification: Waveform encoding for neural field-based audio signal representation</h3>
+              <p class="paper-card__authors">TaeSoo Kim*, <strong>Daniel Rho*</strong>, Gahui Lee, JaeHan Park, Jong Hwan Ko</p>
+              <p class="paper-card__meta">
+                <span class="venue venue--peer">ICASSP 2023</span>
+                <a class="paper-link" href="https://ieeexplore.ieee.org/abstract/document/10095021" target="_blank" rel="noopener noreferrer" aria-label="Paper">
+                  <svg width="14" height="14" aria-hidden="true"><use href="#i-doc"/></svg><span>paper</span>
+                </a>
+              </p>
+            </div>
+          </li>
+
+          <li class="paper-card">
+            <div class="paper-card__body">
+              <h3 class="paper-card__title">Neural residual flow fields for efficient video representations</h3>
+              <p class="paper-card__authors"><strong>Daniel Rho</strong>, Junwoo Cho, Jong Hwan Ko, Eunbyung Park</p>
+              <p class="paper-card__meta">
+                <span class="venue venue--peer">ACCV 2022</span>
+                <a class="paper-link" href="https://openaccess.thecvf.com/content/ACCV2022/html/Rho_Neural_Residual_Flow_Fields_for_Efficient_Video_Representations_ACCV_2022_paper.html" target="_blank" rel="noopener noreferrer" aria-label="Paper">
+                  <svg width="14" height="14" aria-hidden="true"><use href="#i-doc"/></svg><span>paper</span>
+                </a>
+                <a class="paper-link" href="https://github.com/daniel03c1/eff_video_representation" target="_blank" rel="noopener noreferrer" aria-label="Code">
+                  <svg width="14" height="14" aria-hidden="true"><use href="#i-code"/></svg><span>code</span>
+                </a>
+              </p>
+            </div>
+          </li>
+
+          <li class="paper-card">
+            <div class="paper-card__body">
+              <h3 class="paper-card__title">Streamable neural fields</h3>
+              <p class="paper-card__authors">Junwoo Cho*, Seungtae Nam*, <strong>Daniel Rho</strong>, Jong Hwan Ko, Eunbyung Park</p>
+              <p class="paper-card__meta">
+                <span class="venue venue--peer">ECCV 2022</span>
+                <a class="paper-link" href="https://www.ecva.net/papers/eccv_2022/papers_ECCV/html/744_ECCV_2022_paper.php" target="_blank" rel="noopener noreferrer" aria-label="Paper">
+                  <svg width="14" height="14" aria-hidden="true"><use href="#i-doc"/></svg><span>paper</span>
+                </a>
+                <a class="paper-link" href="https://github.com/jwcho5576/streamable_nf" target="_blank" rel="noopener noreferrer" aria-label="Code">
+                  <svg width="14" height="14" aria-hidden="true"><use href="#i-code"/></svg><span>code</span>
+                </a>
+              </p>
+            </div>
+          </li>
+
+          <li class="paper-card">
+            <div class="paper-card__body">
+              <h3 class="paper-card__title">NAS-VAD: Neural architecture search for voice activity detection</h3>
+              <p class="paper-card__authors"><strong>Daniel Rho</strong>, Jinhyeok Park, Jong Hwan Ko</p>
+              <p class="paper-card__meta">
+                <span class="venue venue--peer">Interspeech 2022</span>
+                <a class="paper-link" href="https://www.isca-speech.org/archive/interspeech_2022/rho22_interspeech.html" target="_blank" rel="noopener noreferrer" aria-label="Paper">
+                  <svg width="14" height="14" aria-hidden="true"><use href="#i-doc"/></svg><span>paper</span>
+                </a>
+                <a class="paper-link" href="https://github.com/daniel03c1/NAS_VAD" target="_blank" rel="noopener noreferrer" aria-label="Code">
+                  <svg width="14" height="14" aria-hidden="true"><use href="#i-code"/></svg><span>code</span>
+                </a>
+              </p>
+            </div>
+          </li>
+
+        </ol>
+      </div>
+    </section>
+
+    <section id="preprints" class="section" aria-labelledby="preprints-title">
+      <div class="container">
+        <h2 id="preprints-title" class="section__title">Preprints</h2>
+
+        <ol class="paper-list" reversed>
+
+          <li class="paper-card">
+            <div class="paper-card__body">
+              <h3 class="paper-card__title">Stop holding your breath: CT-informed Gaussian splatting for dynamic bronchoscopy</h3>
+              <p class="paper-card__authors">Andrea Dunn Beltran, <strong>Daniel Rho</strong>, Aarav Mehta, Xinqi Xiong, Ra&uacute;l San Jos&eacute; Est&eacute;par, Ron Alterovitz, Marc Niethammer, Roni Sengupta</p>
+              <p class="paper-card__meta">
+                <span class="venue venue--preprint">arXiv 2026</span>
+                <a class="paper-link" href="https://asdunnbe.github.io/RESPIRE/" target="_blank" rel="noopener noreferrer" aria-label="Project page">
+                  <svg width="14" height="14" aria-hidden="true"><use href="#i-globe"/></svg><span>project</span>
+                </a>
+                <a class="paper-link" href="https://arxiv.org/abs/2604.28179" target="_blank" rel="noopener noreferrer" aria-label="Paper">
+                  <svg width="14" height="14" aria-hidden="true"><use href="#i-doc"/></svg><span>paper</span>
+                </a>
+              </p>
+            </div>
+          </li>
+
+          <li class="paper-card">
+            <div class="paper-card__body">
+              <h3 class="paper-card__title">Understanding contrastive learning through the lens of margins</h3>
+              <p class="paper-card__authors"><strong>Daniel Rho</strong>, TaeSoo Kim, Sooill Park, Jaehyun Park, JaeHan Park</p>
+              <p class="paper-card__meta">
+                <span class="venue venue--preprint">arXiv 2023</span>
+                <a class="paper-link" href="https://arxiv.org/abs/2306.11526" target="_blank" rel="noopener noreferrer" aria-label="Paper">
+                  <svg width="14" height="14" aria-hidden="true"><use href="#i-doc"/></svg><span>paper</span>
+                </a>
+              </p>
+            </div>
+          </li>
+
+        </ol>
+      </div>
+    </section>
+
+    <!--
+      Experience timeline. Two columns side by side on desktop, single column
+      on phones. Each row is one entry. Rows that contain entries on both
+      sides represent parallel events; in those rows the marker on the axis
+      uses the bar style. Sequential entries (alone in their row) use the dot
+      style. CSS controls the visual switch via the row's modifier class.
+    -->
+    <section id="experience" class="section" aria-labelledby="experience-title">
+      <div class="container">
+        <h2 id="experience-title" class="section__title">Experience</h2>
+
+        <div class="timeline" role="list" aria-label="Education and work timeline">
+
+          <div class="timeline__heads" aria-hidden="true">
+            <span class="timeline__head">Education</span>
+            <span class="timeline__head">Work</span>
+          </div>
+
+          <!-- Parallel: PhD and Lenovo internship overlap in time. -->
+          <div class="timeline__row timeline__row--parallel" role="listitem">
+            <div class="entry entry--edu">
+              <span class="entry__date">2024 to present</span>
+              <h3 class="entry__title">PhD, Computer Science</h3>
+              <p class="entry__detail">UNC Chapel Hill, advisor: <a href="https://www.cs.unc.edu/~ronisen/" target="_blank" rel="noopener noreferrer">Roni Sengupta</a></p>
+              <span class="entry__type-icon" aria-hidden="true"><svg width="14" height="14"><use href="#i-cap"/></svg></span>
+            </div>
+            <span class="timeline__marker timeline__marker--bar" aria-hidden="true"></span>
+            <div class="entry entry--work">
+              <span class="entry__date">May to Jul 2025</span>
+              <h3 class="entry__title">Research Intern</h3>
+              <p class="entry__detail">Lenovo Research</p>
+              <span class="entry__type-icon" aria-hidden="true"><svg width="14" height="14"><use href="#i-bag"/></svg></span>
+            </div>
+          </div>
+
+          <!-- Sequential: KT alone on the work side. -->
+          <div class="timeline__row timeline__row--single" role="listitem">
+            <div class="entry entry--placeholder" aria-hidden="true"></div>
+            <span class="timeline__marker timeline__marker--dot" aria-hidden="true"></span>
+            <div class="entry entry--work">
+              <span class="entry__date">Aug 2022 to Jun 2024</span>
+              <h3 class="entry__title">Research Engineer</h3>
+              <p class="entry__detail">AI Tech Lab, KT</p>
+              <span class="entry__type-icon" aria-hidden="true"><svg width="14" height="14"><use href="#i-bag"/></svg></span>
+            </div>
+          </div>
+
+          <!-- Sequential: MS alone on the education side. -->
+          <div class="timeline__row timeline__row--single" role="listitem">
+            <div class="entry entry--edu">
+              <span class="entry__date">2020 to 2022</span>
+              <h3 class="entry__title">MS, Artificial Intelligence</h3>
+              <p class="entry__detail">Sungkyunkwan University, advisors: <a href="https://iris.skku.edu" target="_blank" rel="noopener noreferrer">Jong Hwan Ko</a>, <a href="https://silverbottlep.github.io" target="_blank" rel="noopener noreferrer">Eunbyung Park</a></p>
+              <span class="entry__type-icon" aria-hidden="true"><svg width="14" height="14"><use href="#i-cap"/></svg></span>
+            </div>
+            <span class="timeline__marker timeline__marker--dot" aria-hidden="true"></span>
+            <div class="entry entry--placeholder" aria-hidden="true"></div>
+          </div>
+
+          <!-- Sequential: BS alone on the education side. -->
+          <div class="timeline__row timeline__row--single" role="listitem">
+            <div class="entry entry--edu">
+              <span class="entry__date">2014 to 2020</span>
+              <h3 class="entry__title">BS, Economics and Computer Science</h3>
+              <p class="entry__detail">Sungkyunkwan University</p>
+              <span class="entry__type-icon" aria-hidden="true"><svg width="14" height="14"><use href="#i-cap"/></svg></span>
+            </div>
+            <span class="timeline__marker timeline__marker--dot" aria-hidden="true"></span>
+            <div class="entry entry--placeholder" aria-hidden="true"></div>
+          </div>
+
+        </div>
+      </div>
+    </section>
+
+  </main>
+
+  <footer class="site-footer">
+    <div class="container">
+      <p class="site-footer__text">Last updated, May 2026.</p>
+    </div>
+  </footer>
+
+  <script src="assets/js/main.js" defer></script>
+</body>
 </html>
